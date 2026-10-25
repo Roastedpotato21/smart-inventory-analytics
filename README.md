@@ -2,6 +2,12 @@
 
 A Data Analyst portfolio case study that follows retail inventory data from Excel preparation to MySQL analysis and a Power BI dashboard. The accompanying React website presents the methodology, verified findings, recommendations, and original project files.
 
+## Live Demo
+
+[Explore Smart Inventory Analytics](https://smart-inventory-analytics.vercel.app)
+
+The public Vercel site includes the dashboard preview, SQL analysis, dataset, and original Power BI report download.
+
 ## Objective
 
 Explore patterns in stock levels, product categories, pricing, demand, and sales performance, and communicate the findings clearly enough for a recruiter to inspect the analysis and its evidence.
@@ -22,7 +28,7 @@ The price currency and discount unit are unspecified. Inventory totals sum repea
 - Portfolio: React 19, Vite 7, TypeScript, Tailwind CSS 4, Motion, Lucide React
 - Typography: locally hosted Manrope via Fontsource
 - Validation: TypeScript, Playwright, Node.js SHA-256 artifact verification
-- Sharing: GitHub; prepared for Vercel static hosting
+- Sharing: GitHub and Vercel static hosting
 
 The website has no backend, authentication, environment variables, or browser-side CSV parsing.
 
@@ -96,7 +102,7 @@ The single-page portfolio contains:
 3. Original Power BI dashboard showcase with an accessible lightbox
 4. Selectable SQL previews and links to the full analysis
 5. Evidence-backed insight cards and business recommendations
-6. An analyst workflow from Kaggle through a future Vercel deployment
+6. An analyst workflow from Kaggle through Vercel deployment
 7. Tools, skills, project downloads, and repository links
 
 Motion includes staggered section reveals, count-up KPIs, chart entrance, card and button feedback, and a scroll-linked workflow line on desktop. Mobile uses a vertical workflow. `prefers-reduced-motion` disables animated entrances and smooth scrolling. Navigation and dialogs support keyboard use, visible focus, and Escape handling.
@@ -166,20 +172,20 @@ vite.config.ts
 
 ## Vercel deployment
 
-The application is prepared for deployment but **has not been deployed**.
+The application is deployed at **https://smart-inventory-analytics.vercel.app**.
 
 Import the repository into Vercel with:
 
 | Setting | Value |
 | --- | --- |
 | Framework preset | Vite |
-| Install command | npm install |
+| Install command | npm ci |
 | Build command | npm run build |
 | Output directory | dist |
 | Node.js | 22.x or 24.x |
 | Environment variables | None |
 
-All public artifacts are copied to the build root by Vite. The site uses section anchors and does not need SPA rewrites or server functions. After publishing, verify the hosted downloads and update any portfolio/resume links with the actual public URL. No live deployment URL is claimed here.
+All public artifacts are copied to the build root by Vite. The site uses section anchors and does not need SPA rewrites or server functions. `.vercelignore` excludes local dependency caches, build output, test results, and environment files from CLI uploads. Use the Live Demo URL above for portfolio and resume links.
 
 ## Resources
 

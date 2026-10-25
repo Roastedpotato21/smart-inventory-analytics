@@ -10,7 +10,7 @@ const steps = [
   { icon: FileCode2, title: 'SQL analysis', text: 'Query pricing, stock, sales and demand.' },
   { icon: BarChart3, title: 'Power BI dashboard', text: 'Make the patterns easier to see.' },
   { icon: Github, title: 'GitHub portfolio', text: 'Share the analysis and original files.' },
-  { icon: Rocket, title: 'Vercel deployment', text: 'Next: publish this case study.', pending: true },
+  { icon: Rocket, title: 'Vercel deployment', text: 'Share this case study as a public website.', pending: false },
 ]
 
 export function Workflow() {
