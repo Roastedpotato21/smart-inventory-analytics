@@ -1,0 +1,73 @@
+{
+  "records": 73100,
+  "unitsSold": 9975582,
+  "totalInventory": 20063748,
+  "categories": [
+    {
+      "name": "Clothing",
+      "records": 14626,
+      "unitsSold": 1999166,
+      "inventory": 4016267,
+      "averagePrice": 54.8866,
+      "inventoryShare": 20.02
+    },
+    {
+      "name": "Electronics",
+      "records": 14521,
+      "unitsSold": 1960432,
+      "inventory": 3957182,
+      "averagePrice": 55.3108,
+      "inventoryShare": 19.72
+    },
+    {
+      "name": "Furniture",
+      "records": 14699,
+      "unitsSold": 2025017,
+      "inventory": 4054223,
+      "averagePrice": 55.1759,
+      "inventoryShare": 20.21
+    },
+    {
+      "name": "Groceries",
+      "records": 14611,
+      "unitsSold": 2000482,
+      "inventory": 4029065,
+      "averagePrice": 55.2712,
+      "inventoryShare": 20.08
+    },
+    {
+      "name": "Toys",
+      "records": 14643,
+      "unitsSold": 1990485,
+      "inventory": 4007011,
+      "averagePrice": 55.0324,
+      "inventoryShare": 19.97
+    }
+  ],
+  "queries": [
+    {
+      "title": "Data validation",
+      "sql": "SELECT COUNT(*) AS total_records,\n       COUNT(DISTINCT `Category`) AS category_count\nFROM cleaned_inventory;"
+    },
+    {
+      "title": "Date-level analysis",
+      "sql": "SELECT STR_TO_DATE(`Date`, '%d-%m-%Y') AS record_date,\n       COUNT(*) AS records,\n       ROUND(AVG(`Price`), 2) AS average_price\nFROM cleaned_inventory\nGROUP BY STR_TO_DATE(`Date`, '%d-%m-%Y')\nORDER BY record_date;"
+    },
+    {
+      "title": "Category pricing",
+      "sql": "SELECT `Category`,\n       ROUND(AVG(`Price`), 2) AS average_price\nFROM cleaned_inventory\nGROUP BY `Category`\nORDER BY average_price DESC, `Category`;"
+    },
+    {
+      "title": "Inventory analysis",
+      "sql": "SELECT `Category`,\n       SUM(`Inventory Level`) AS inventory_observations\nFROM cleaned_inventory\nGROUP BY `Category`\nORDER BY inventory_observations DESC, `Category`;"
+    },
+    {
+      "title": "Sales analysis",
+      "sql": "SELECT `Category`,\n       SUM(`Units Sold`) AS total_units_sold\nFROM cleaned_inventory\nGROUP BY `Category`\nORDER BY total_units_sold DESC, `Category`;"
+    },
+    {
+      "title": "Demand analysis",
+      "sql": "SELECT `Category`,\n       ROUND(AVG(`Demand Forecast`), 2) AS avg_demand_forecast\nFROM cleaned_inventory\nGROUP BY `Category`\nORDER BY avg_demand_forecast DESC, `Category`;"
+    }
+  ]
+}

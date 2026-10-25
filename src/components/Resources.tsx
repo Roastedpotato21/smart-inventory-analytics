@@ -1,0 +1,12 @@
+import { ArrowDownToLine, ArrowUpRight, Database, FileCode2, Github, Image, Monitor } from 'lucide-react'
+import { project } from '../data/project'
+import { Eyebrow, Reveal } from './ui'
+
+export function Resources() {
+  return <section id="resources" className="section resources-section"><div className="container"><Reveal className="section-heading"><div><Eyebrow number="06">TAKE A CLOSER LOOK</Eyebrow><h2>The work is open.<br />Explore it yourself.</h2></div><p>Original files, readable queries,<br className="desktop-break" /> and the data behind every finding.</p></Reveal><div className="resources-grid"><Reveal className="resource-primary"><div className="resource-file-icon"><Monitor size={27} strokeWidth={1.5} /></div><span className="small-label">THE COMPLETE REPORT</span><h3>Open the analysis<br />in Power BI.</h3><p>Explore the original dashboard and its category filters in Power BI Desktop.</p><a className="button button-primary" href={project.report} download>Download Power BI Report<ArrowDownToLine size={17} /></a><span className="resource-format">.PBIX · POWER BI DESKTOP REQUIRED</span></Reveal><Reveal className="resource-list" delay={0.06}>
+      <a className="resource-row" href={project.sql} target="_blank" rel="noreferrer"><span className="resource-row-icon"><FileCode2 size={22} /></span><span><strong>SQL analysis</strong><span>View the full MySQL query collection</span></span><ArrowUpRight size={20} /></a>
+      <div className="resource-row dataset-resource"><span className="resource-row-icon"><Database size={22} /></span><span><strong>Cleaned dataset</strong><span>{project.records.toLocaleString('en-US')} records · CSV</span><span className="dataset-links"><a href={project.dataset} target="_blank" rel="noreferrer">View CSV<ArrowUpRight size={13} /></a><span aria-hidden="true">/</span><a href={project.dataset} download>Download<ArrowDownToLine size={13} /></a></span></span></div>
+      <a className="resource-row" href={project.dashboard} target="_blank" rel="noreferrer"><span className="resource-row-icon"><Image size={22} /></span><span><strong>Dashboard image</strong><span>View the original Power BI screenshot</span></span><ArrowUpRight size={20} /></a>
+      <a className="resource-row" href={project.github} target="_blank" rel="noreferrer"><span className="resource-row-icon"><Github size={22} /></span><span><strong>GitHub repository</strong><span>Browse the project and source code</span></span><ArrowUpRight size={20} /></a>
+    </Reveal></div></div></section>
+}
